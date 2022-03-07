@@ -1,0 +1,20 @@
+Azure managed Kubernetes service (AKS)
+
+supports multi -nic : yes
+auto bootstrap of secondary nic (after restart)  : yes ( sometimes doesnt kick-in immediately , which is sorted by netplan changes) 
+manual add-on of secondary nic (through netplan) : yes
+deletion of secondary nic : yes 
+auto update of secondary nic removal (after restart) : yes 
+deletion of primary nic (while secondary is left undisturbed) : tbd
+auto update of primary nic removal (after restart) : tbd
+
+Accelerated networking
+
+supports multi-nic with accel n/w : 
+
+
+
+
+
+
+
