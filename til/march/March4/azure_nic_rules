@@ -1,5 +1,8 @@
 Azure managed Kubernetes service (AKS)
 
+Without accelerated networking
+******************************
+
 supports multi -nic : yes
 auto bootstrap of secondary nic (after restart)  : yes ( sometimes doesnt kick-in immediately , which is sorted by netplan changes) 
 manual add-on of secondary nic (through netplan) : yes
@@ -8,11 +11,20 @@ auto update of secondary nic removal (after restart) : yes
 deletion of primary nic (while secondary is left undisturbed) : tbd
 auto update of primary nic removal (after restart) : tbd
 
+above set of steps applies for cmd line and portal based actions: yes
+
 Accelerated networking
+******************************
 
-supports multi-nic with accel n/w : 
+supports multi-nic with accel n/w : partial ( only one nic can have accel n/w turned on)  
+auto bootstrap of secondary nic ( after vmss restart) : yes (sec ni/c is without accel n/w)
+manual add-on of secondary nic (through netplan) : yes ( same condition as above)
+deletion of secondary nic: yes 
+auto update of secondary nic removal (after vmss restart): yes
+deletion of primary nic (wile secondary is left undisturned): tbd
+auto update of primary nic removal (after vmss restart): tbd
 
-
+above set of steps applies for cmd line and portal based actions: yes
 
 
 
