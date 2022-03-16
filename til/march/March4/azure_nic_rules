@@ -8,8 +8,8 @@ auto bootstrap of secondary nic (after restart)  : yes ( sometimes doesnt kick-i
 manual add-on of secondary nic (through netplan) : yes
 deletion of secondary nic : yes 
 auto update of secondary nic removal (after restart) : yes 
-deletion of primary nic (while secondary is left undisturbed) : tbd
-auto update of primary nic removal (after restart) : tbd
+deletion of primary nic (while secondary is left undisturbed) : yes ( sec becomes new primary)
+auto update of primary nic removal (after restart) : yes ( sec becomes new primary)
 
 above set of steps applies for cmd line and portal based actions: yes
 
@@ -21,8 +21,8 @@ auto bootstrap of secondary nic ( after vmss restart) : yes (sec ni/c is without
 manual add-on of secondary nic (through netplan) : yes ( same condition as above)
 deletion of secondary nic: yes 
 auto update of secondary nic removal (after vmss restart): yes
-deletion of primary nic (wile secondary is left undisturned): tbd
-auto update of primary nic removal (after vmss restart): tbd
+deletion of primary nic (wile secondary is left undisturned): yes ( sec becomes new primary)
+auto update of primary nic removal (after vmss restart): yes (sec becomes new primary) 
 
 above set of steps applies for cmd line and portal based actions: yes
 
