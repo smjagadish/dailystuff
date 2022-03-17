@@ -1,0 +1,6 @@
+[submodule "til/march/March17/springboot-rmq-sender"]
+	path = til/march/March17/springboot-rmq-sender
+	url = https://github.com/koushikmgithub/springboot-rmq-sender.git
+[submodule "til/march/March17/springboot-rmq-receiver"]
+	path = til/march/March17/springboot-rmq-receiver
+	url = https://github.com/koushikmgithub/springboot-rmq-receiver.git
