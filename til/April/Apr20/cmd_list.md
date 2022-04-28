@@ -31,6 +31,9 @@ az keyvault secret set --vault-name "${KEYVAULT_NAME}" \
 
 creating sp for workload identity and assigining role/policy to azure key vault
 *******************************************************************************
+
+az ad sp create-for-rbac --name "${APPLICATION_NAME}"
+
 export APPLICATION_CLIENT_ID="$(az ad sp list --display-name "${APPLICATION_NAME}" --query '[0].appId' -otsv)"
 az keyvault set-policy --name "${KEYVAULT_NAME}" \
   --secret-permissions get \
@@ -40,7 +43,19 @@ creating k8s SA
 ****************
 standard command followed by below annotation
 
-kubectl annotate sa ${SERVICE_ACCOUNT_NAME} -n ${SERVICE_ACCOUNT_NAMESPACE} azure.workload.identity/tenant-id="${APPLICATION_TENANT_ID}" --overwrite
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    azure.workload.identity/client-id: ${APPLICATION_CLIENT_ID}
+  labels:
+    azure.workload.identity/use: "true"
+  name: ${SERVICE_ACCOUNT_NAME}
+  namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+EOF
+
+#kubectl annotate sa ${SERVICE_ACCOUNT_NAME} -n ${SERVICE_ACCOUNT_NAMESPACE} azure.workload.identity/tenant-id="${APPLICATION_TENANT_ID}" --overwrite
 
 federation between k8s sa and workload identity sp
 **************************************************
