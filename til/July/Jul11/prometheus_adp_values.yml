@@ -1,0 +1,24 @@
+image:
+  repository: k8s.gcr.io/prometheus-adapter/prometheus-adapter
+  tag: v0.9.1
+  pullPolicy: IfNotPresent
+logLevel: 6
+prometheus:
+  url: http://prometheus-self
+  path: /
+rules:
+  default: true
+  resource: { }
+  external:
+    - metricsQuery: sum(avg_over_time(kafka_consumergroup_lag{ << .LabelMatchers >> }[1m])) by (topic,consumergroup)
+      name:
+        as: kafka_consumergroup_lag
+      resources:
+        template: <<.Resource>>
+      seriesQuery: '{topic!="",__name__=~"kafka_consumergroup_lag"}'
+    - metricsQuery: sum((total_executors{ << .LabelMatchers >> } - idle_executors{ << .LabelMatchers >> } +1) / total_executors{ << .LabelMatchers >> }) by (namespace)
+      name:
+        as: idle_executors_target_metric
+      resources:
+        template: <<.Resource>>
+      seriesQuery: '{__name__=~"idle_executors"}'

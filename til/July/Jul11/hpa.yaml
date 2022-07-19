@@ -1,0 +1,34 @@
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta2
+metadata:
+  name: example-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: thanos-query
+  minReplicas: 1
+  maxReplicas: 2
+  behavior:
+    scaleUp:
+      policies:
+        - type: Pods
+          periodSeconds: 15
+          value: 3
+    scaleDown:
+      stabilizationWindowSeconds: 60
+      policies:
+        - type: Pods
+          periodSeconds: 15
+          value: 3
+  metrics:
+    - type: External
+      external:
+        metric:
+          name: "kafka_consumergroup_lag"
+          selector:
+            matchLabels:
+              topic: test2
+        target:
+          type: Value
+          value: 500m

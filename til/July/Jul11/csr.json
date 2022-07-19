@@ -1,0 +1,14 @@
+{
+   "cmpv2Servers":[
+      {
+         "caName":"ManagementCA",
+         "url":"http://127.0.0.1:8280/ejbca/publicweb/cmp/cmp",
+         "issuerDN":"CN=ManagementCA",
+         "caMode":"CLIENT",
+         "authentication":{
+            "iak":"mypassword",
+            "rv":"mypassword"
+         }
+      }
+   ]
+}
