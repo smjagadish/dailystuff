@@ -1,1 +1,17 @@
 # dummy
+March 1 - apparmor and seccomp poc
+March 17 - KEDA with rabbit mq poc 
+March 2 - CPU rules and policies in K8s
+March 22 - virtual kubelet in azure
+March 24 - azure ad with aks 
+March 31 - aks nodepools and upgrades 
+March 4 - multi NIC attach rules for AKS
+Apr 4 - thanos sidecar poc
+Apr 29 - certm poc with vault as pki provider
+Apr 20 - azure workload identity feature ( for use with ESO)
+Jul 08 - local ssh server - uid/passwd and ssh key based
+Jul 11 - kafka metrics based HPA with prometehus adpater external metrics server
+Jul 19 - ejbca client mode online enrollment
+Jul 28 - vault in ha mode with manual unseal and raft storage (no tls)
+Aug 3 - vault in ha mode with manual unseal and raft storage WITH tls (kubelet CA served)
+
