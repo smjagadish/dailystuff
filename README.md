@@ -14,4 +14,5 @@ Jul 11 - kafka metrics based HPA with prometehus adpater external metrics server
 Jul 19 - ejbca client mode online enrollment
 Jul 28 - vault in ha mode with manual unseal and raft storage (no tls)
 Aug 3 - vault in ha mode with manual unseal and raft storage WITH tls (kubelet CA served)
+Aug 29 - ephemeral containers
 
