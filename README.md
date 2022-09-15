@@ -15,5 +15,6 @@ Jul 19 - ejbca client mode online enrollment
 Jul 28 - vault in ha mode with manual unseal and raft storage (no tls)
 Aug 3 - vault in ha mode with manual unseal and raft storage WITH tls (kubelet CA served)
 Aug 29 - ephemeral containers
-Sep 6 - vault csi driver secrets 
+Sep 6 - vault csi driver secrets
+Sep 14 - AKS vs EKS notes related to networking 
 
