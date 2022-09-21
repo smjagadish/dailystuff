@@ -4,4 +4,5 @@ aws -> vpc has 1 primary cidr at all times. node and pod ip assigned from this. 
 azure -> vnet can potentially host multiple cidr with each tagged to a subnet. nodes (and pods) can be placed onto diff subnet/cidr . alternatively a cidr/subnet exclusively for pods is also possible . 
 aws -> with pvt subnets, use nat g/w for outbound internet connection 
 azure -> not striaght-forward to block outbound internet access . one way is to use azure firewall and UDR
+aws -> ENA purportedly brings SR-IOV to ec2 but not to eks yet  . looks like it can be based on intel vf or another amazon specific flavor 
 
