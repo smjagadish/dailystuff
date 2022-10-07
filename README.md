@@ -17,4 +17,6 @@ Aug 3 - vault in ha mode with manual unseal and raft storage WITH tls (kubelet C
 Aug 29 - ephemeral containers
 Sep 6 - vault csi driver secrets
 Sep 14 - AKS vs EKS notes related to networking 
+Sep 21 - AKS vs EKS notes related to IAM
+Sep 30 - Fluentbit
 
