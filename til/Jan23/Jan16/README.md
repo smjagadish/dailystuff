@@ -12,4 +12,5 @@ opensearch notes
 * ingestor thus is a single point of contact for app nodes and can distribute/consolidate search queries amongst data nodes and route writes to excat data node
 * ingestor just needs to be high on memory 
 * master node is responsible for overall cluster management , i.e. monitoring which nodes enter/exit the cluster , shard assignment amongst nodes, shard re-assignment if any etc .
+* node roles are setup in configuration files and that governs if a node starts up as master/ data / ingestor
 

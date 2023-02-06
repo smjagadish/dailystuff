@@ -19,4 +19,5 @@ Sep 6 - vault csi driver secrets
 Sep 14 - AKS vs EKS notes related to networking 
 Sep 21 - AKS vs EKS notes related to IAM
 Sep 30 - Fluentbit
-
+Nov 2 - Virtual pod autoscaler
+Jan 16 , 2023 - opensearch readme 
