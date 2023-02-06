@@ -48,6 +48,30 @@ BODY: {
 * data streams are backed by 1 write index and multiple read indices by ES. index rollover is automatically handled by ES and force roll-over is also possible 
 * data streams do require info on the field that acts as the timestamp indicator. creation can be through the template wrapper as shown above 
 * doc insert into data streams works in same way as for regular index. ES will auto map the referred index name to the current active write index 
+ sample insert into data stream ( assuming timestamp indicator is request_time)
+ACTION : POST
+URL: http://localhost:9200/logs-nginx/_doc
+Body:
+{
+  "message": "login attempt failed",
+  "request_time": "2013-03-01T00:00:00"
+}
+
+* re-indexing is a technique to move docs from 1 index to another . either selectively (through query match) or in entirety . destination index is auto-created if not present already 
+
+ACTION : POST
+URL : http://localhost:9200/_reindex
+BODY:
+{
+   "source":{
+      "index":"fl_index"
+   },
+   "dest":{
+      "index":"rd3"
+   }
+}
+
+* in above snippet, rd3 is auto created . it is possible for rd3 to be created up-front as well
 
 
 
