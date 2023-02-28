@@ -22,3 +22,4 @@ Sep 30 - Fluentbit
 Nov 2 - Virtual pod autoscaler
 Jan 16 , 2023 - opensearch readme 
 Feb 16 , 2023 - unbound dns resolver 
+Feb 28 , 2023 - external dns K8s service
