@@ -1,0 +1,20 @@
+Lazy capture for azure private endpoint and/or private link service 
+* azure private endpoint and/or private link service is mainly intended for private access to azure managed services .
+* More sepcifically , cutting out any form of internet transitting from app to the azure managed service is the major takeaway from the private endpoint and the private link service
+* private endpoint takes care of providing a private IP from the vnet hosting the app (also called as service consumer henceforth) 
+* the private endpoint connects the service consumer to to a azure managed service that is backed by the private link 
+* common examples of such service include - azure cosmos , azure sql db etc.
+* connectivity using the private endpoint always follows the direction of service consumer - service 
+* more than 1 private endpoint resource can be created for a single private link resource 
+* private endpoints also have elements of network security baked in
+* private endpoints co-exist with the public endpoints (if any) and do not restrict access from any service consumer to the resource (attached to the private link service) over the public ip
+* network policlies , network security groups etc. are applicable for the private endpoints too 
+* its important to configure an entry for the private endpoint fqdn in the private dns zone 
+* this will ensure apps continue to use the same connection url / string ( which may have referred to public endpoint fqdn) 
+* also, when using pvt link for k8s loadbalanced services, keep in mind that the lb has to be internal lb (not public) for the pvt link to work
+* pvt link/pvt endpoint is the brains behind aks private clusters 
+* pvt endpoint in our resource group linked to pvt resource in azure resource group
+
+use the nginx deploy files and the pvt endpoint create file 
+pvt link creation automated thru the annotation in nginx file but pvt endpoint must be created manually 
+creation from portal fails, so use the az shell commands to create 

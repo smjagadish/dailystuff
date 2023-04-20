@@ -1,0 +1,4 @@
+  AKS_MC_RG=$(az aks show -g esmjaga-playground --name appcluster --query nodeResourceGroup -o tsv)
+  az network private-link-service list -g $AKS_MC_RG --query "[].{Name:name,Alias:alias}" -o table
+  AKS_PLS_ID=$(az network private-link-service list -g $AKS_MC_RG --query "[].id" -o tsv)
+  az network private-endpoint create -g esmjaga-playground --name myPLSPE --vnet-name myvnet --subnet mysubnet  --private-connection-resource-id $AKS_PLS_ID --connection-name connectToMyK8sService
