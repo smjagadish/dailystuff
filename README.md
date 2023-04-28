@@ -26,3 +26,4 @@ Feb 28, 2023 - external dns K8s service
 Mar 13, 2023 - host with multiple n/w interfaces 
 Mar 15, 2023 - aws and azure acct mgmt notes
 Apr 19, 2023 - azure private link/endpoint notes
+Apr 28, 2023 - certificate revocation playground with openssl
