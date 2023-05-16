@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: lego-cert-creation
+spec:
+  ttlSecondsAfterFinished: 120
+  template:
+    spec:
+      containers:
+      - name: lego-cert-creation
+        image: goacme/lego:latest
+        env:
+          - name: DUCKDNS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: token
+                name: dnssec
+        args:
+        - --accept-tos
+        - --domains=smjagadish.duckdns.org
+        - --email=smjj@abc.com
+        - --path=/tmp/lego
+        - --dns=duckdns
+        - run
+        volumeMounts:
+          - mountPath: /tmp/lego
+            name: lego-certificate-claim-volume-reference
+      restartPolicy: OnFailure
+      volumes:
+        - name: lego-certificate-claim-volume-reference
+          persistentVolumeClaim:
+            claimName: lego-certificate-claim
