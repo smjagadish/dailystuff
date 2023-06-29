@@ -6,8 +6,8 @@ image:
 replicaCount: 1
 
 kafkaServer:
-  - 100.109.0.10:29092
-  - 100.109.0.10:39092
+  - 192.168.201.54:29092
+  - 192.168.201.54:39092
 
 # Specifies broker version to use, leave empty for default
 kafkaBrokerVersion:
@@ -73,7 +73,7 @@ prometheus:
     # additionalLabels:
     #   release: kube-prometheus
     additionalLabels:
-      prometheus: self
+      operated-prometheus: "true"
     targetLabels: []
 
 resources: {}
