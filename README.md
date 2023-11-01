@@ -29,3 +29,4 @@ Apr 19, 2023 - azure private link/endpoint notes
 Apr 28, 2023 - certificate revocation playground with openssl
 May 10, 2023 - rekor transparency ledger
 May 16, 2023 - ACME client for lets encrypt based on dns challenge
+Nov 1, 2023 - Guava RateLimiter
