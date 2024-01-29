@@ -7,6 +7,8 @@ Notes for the poc done on kuik
 * github link for the proj : https://github.com/enix/kube-image-keeper
 * there is an overhead in terms of the disk usage for the storage of the images
 * if there are no running containers  using a previously cached image , those images are garbage collected ( by default 30 days but can be configured)
-* the utiloty allows pods to be skipped from kuik by using annotations . entire ns can also be bypassed
+* the utility allows pods to be skipped from kuik by using annotations . entire ns can also be bypassed
 * private images become less private
 * images must be refereced by tags and NOT using a digest
+* harbor has a similar approach of providing a pull through cache . will investigate this as a separate TIL
+* another candidate albeit architected differently is kube-fledged . this will also be investigated as a separate TIL
