@@ -12,3 +12,4 @@ Notes for the poc done on kuik
 * images must be refereced by tags and NOT using a digest
 * harbor has a similar approach of providing a pull through cache . will investigate this as a separate TIL
 * another candidate albeit architected differently is kube-fledged . this will also be investigated as a separate TIL
+* seekable OCI snapshotter is another solution that is on a different tangent (no cache but more of lazy loading of the images). will be the scope of a separate TIL
