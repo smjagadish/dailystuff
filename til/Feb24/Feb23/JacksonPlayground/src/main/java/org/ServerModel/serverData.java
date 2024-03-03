@@ -9,11 +9,13 @@ import org.serzUtil.modelSer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 // uncomment the below to have a custom serialization for the serverData POJO
 // if using the custom serialization , the prop name and value can be overridden . infact properties cam be added , removed and what not
 //@JsonSerialize(using = serverDataSer.class)
 @JsonPropertyOrder({"sZone","sID"})
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class serverData {
     @Getter @Setter
 
@@ -61,6 +63,7 @@ public class serverData {
 
     public void setMyZone(String s)
     {
+
         this.sZone = s + "hello";
     }
 

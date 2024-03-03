@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.ServerModel.serverData;
+import org.clientInf.zone;
 import org.deserzUtil.siteItemDeser;
 import org.hibernate.validator.constraints.Length;
 import org.slf4j.Logger;
@@ -42,6 +43,7 @@ public class clientData {
     @Valid
     @JsonDeserialize(using = siteItemDeser.class)
     private siteItem sItem;
+    private zone baseData;
     private Map<String,String> extra = new HashMap<>();
 
     // will override the lombok generated setter
@@ -50,6 +52,7 @@ public class clientData {
     {
         this.item = item;
     }
+
     public void printPOJO()
     {
         logger.info("the deserialized POJO:");
@@ -59,6 +62,7 @@ public class clientData {
         this.getExtra().entrySet()
                 .forEach(e->logger.info(e.getValue()));
         logger.info("site data output is:"+ this.getSItem().toString());
+        logger.info("base data output is:"+ this.getBaseData().toString());
 
     }
     @JsonAnySetter
