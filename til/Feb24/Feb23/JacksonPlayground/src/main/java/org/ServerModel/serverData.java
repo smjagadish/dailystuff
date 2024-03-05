@@ -7,6 +7,9 @@ import lombok.Setter;
 import org.ServerInf.Radio;
 import org.serzUtil.modelSer;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -38,9 +41,25 @@ public class serverData {
     @JsonManagedReference
     @Getter @Setter
     private serverManager manager;
+    @JsonProperty
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+    // pass the zoneddatetime in custom format w/o the tz name
+    private ZonedDateTime local_time_with_tz;
+    @JsonProperty
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    // pass the localdate time in a custom format
+    private LocalDateTime local_time;
+    @JsonProperty
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    // pass the instant time(utc) stored in a custom format
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SS", timezone = "UTC")
+    private Instant time_utc;
     public serverData()
     {
         properties = new HashMap<>();
+        this.local_time_with_tz= ZonedDateTime.now();
+        this.local_time = LocalDateTime.now();
+        this.time_utc = Instant.now();
     }
     public serverData(int val)
     {
@@ -48,7 +67,7 @@ public class serverData {
         this.value = val;
         this.radio = new gen5Radio();
     }
-    // will de-serialize the properties hashmap in addition to the class members
+    // will serialize the properties hashmap in addition to the class members
     @JsonAnyGetter
     public Map<String,String> getProperties()
     {
