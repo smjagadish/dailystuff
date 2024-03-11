@@ -24,7 +24,9 @@ public class startup {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(startup.class,args);
         logger.info("application started");
-        //jedisClient client = ctx.getBean(jedisClient.class);
-        //client.doPublish();
+        if(ctx.getEnvironment().acceptsProfiles("redis")) {
+            jedisClient client = ctx.getBean(jedisClient.class);
+            client.doPublish();
+        }
     }
 }
