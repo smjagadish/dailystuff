@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 // enable shed lock for task exclusivity in a multi-threaded env
 @SpringBootApplication
 @EnableScheduling
-@EnableSchedulerLock(defaultLockAtMostFor = "15m")
+@EnableSchedulerLock(defaultLockAtMostFor = "2m")
 @ComponentScan("org.AppConfig")
 @ComponentScan("org.redisClient")
 @ComponentScan("org.Dispatcher")

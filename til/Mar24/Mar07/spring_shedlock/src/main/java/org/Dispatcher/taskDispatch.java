@@ -14,6 +14,7 @@ public class taskDispatch {
     @SchedulerLock(name="mylock")
     public void taskSend()
     {
-       logger.info("sonaarika doing math");
+
+      logger.info("sonaarika doing math");
     }
 }
