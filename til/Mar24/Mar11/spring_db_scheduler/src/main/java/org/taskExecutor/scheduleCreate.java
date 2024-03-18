@@ -5,6 +5,7 @@ import com.github.kagkarlsson.scheduler.task.AbstractTask;
 import com.github.kagkarlsson.scheduler.task.Task;
 import com.github.kagkarlsson.scheduler.task.TaskInstance;
 import com.github.kagkarlsson.scheduler.task.helper.Tasks;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 
 @Configuration
 public class scheduleCreate {
+    @Getter
     private final Scheduler scheduler;
     private Set<String> taskName = new HashSet<>();
     private List<AbstractTask<?>> taskList = new ArrayList<>();

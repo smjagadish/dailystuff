@@ -27,6 +27,7 @@ import java.util.concurrent.RecursiveTask;
 @ComponentScan("org.Dispatcher")
 @ComponentScan("org.taskDefinition")
 @ComponentScan("org.taskExecutor")
+@ComponentScan("org.controller")
 public class appStart {
     private static Logger logger = LoggerFactory.getLogger(appStart.class);
     public static void main(String[] args) {
