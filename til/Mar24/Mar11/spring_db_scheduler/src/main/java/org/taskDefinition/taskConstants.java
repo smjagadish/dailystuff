@@ -23,7 +23,7 @@ public class taskConstants {
     public Task<?>[] returnMap()
     {
 
-        Task<?>[] task_array = new Task<?>[3];
+        Task<?>[] task_array = new Task<?>[4];
 
             task_array[0] = Tasks.oneTime("one_time_task_nd")
                     .execute(new VoidExecutionHandler<Void>() {
@@ -46,6 +46,16 @@ public class taskConstants {
                                    System.out.println("logs from a common recur task with no data");
                                 }
                             });
+            task_array[3] = Tasks.recurring("recurring_with_int_data",FixedDelay.ofMinutes(15),Integer.class)
+                            .initialData(6)
+                    .executeStateful(new StateReturningExecutionHandler<Integer>() {
+                        @Override
+                        public Integer execute(TaskInstance<Integer> taskInstance, ExecutionContext executionContext) {
+                            int val = taskInstance.getData();
+                            System.out.println("seed value from current exec:"+val);
+                            return val+1;
+                        }
+                    });
 
         System.out.println("bean is created");
         return task_array;

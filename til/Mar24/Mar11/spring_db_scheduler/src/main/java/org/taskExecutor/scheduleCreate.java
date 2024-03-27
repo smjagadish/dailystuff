@@ -41,10 +41,13 @@ public class scheduleCreate {
         for (int i =0; i<tarr.length;i++)
         {
             int val = i+10;
-            if(tarr[i].getDataClass()== Integer.class)
+            if(tarr[i].getDataClass()== Integer.class && tarr[i].getTaskName() == "one_time_with_data")
             {
                 scheduler.schedule(new TaskInstance<Integer>(tarr[i].getTaskName(),tarr[i].getTaskName(),val),Instant.now().plusSeconds(80));
+            } else if (tarr[i].getTaskName().startsWith("recurring")) {
+                // do nothing
             }
+            else
             scheduler.schedule(tarr[i].instance(tarr[i].getTaskName()),Instant.now().plusSeconds(90));
         }
         //scheduler.schedule(taskList.get(0).instance(taskName.stream().limit(1).collect(Collectors.toList()).get(0)),Instant.now().plusSeconds(90));
