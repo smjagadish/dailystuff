@@ -14,5 +14,5 @@ public class localClaimBuilder {
     private int app_version;
     private String app_Name;
     private String app_Zone;
-    private String sub;
+
 }

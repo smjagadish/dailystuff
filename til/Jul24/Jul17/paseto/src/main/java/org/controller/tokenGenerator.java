@@ -7,6 +7,7 @@ import dev.paseto.jpaseto.PasetoException;
 import dev.paseto.jpaseto.Pasetos;
 import dev.paseto.jpaseto.io.DeserializationException;
 import dev.paseto.jpaseto.io.Deserializer;
+import org.claimModel.claim;
 import org.claimModel.localClaimBuilder;
 import org.clientModel.sharedTokenModel;
 import org.pasetoSeed.secretSeed;
@@ -26,6 +27,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.temporal.TemporalUnit;
 import java.util.Base64;
 import java.util.Map;
 import java.util.Optional;
@@ -84,6 +88,45 @@ public class tokenGenerator {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(token);
     }
+    @GetMapping(path = "/v2/local", produces = "application/json")
+    public ResponseEntity<String> getlocalV2()
+    {
+        logger.info("processing request for default local token with extra claims");
+        String token = Pasetos.V1.LOCAL.builder()
+                .setSubject("Joe")
+                .setAudience("appv2")
+                .setExpiration(Instant.now())
+                .setSharedSecret(seed.getKey())
+                .claim("c1","v1")
+                .claim("c2","v2")
+                .compact();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(token);
+    }
+    @PostMapping(path = "/v2/validateLocal", produces = "application/json")
+    public ResponseEntity<String> validateLocalV2(@RequestBody String token)
+    {
+        logger.info("validating v2 local with extra claims");
+        try
+        {
+            Claims claims = Pasetos.parserBuilder()
+                    .setSharedSecret(seed.getKey())
+                    .setAllowedClockSkew(Duration.ofMinutes(2))
+                    .build()
+                    .parse(token)
+                    .getClaims();
+            claims.entrySet()
+                    .forEach(e->logger.info("key:"+e.getKey()+" with value:"+e.getValue()));
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body("validated claims successfully");
+        }
+        catch(PasetoException e)
+        {
+            logger.info(e.getLocalizedMessage());
+        }
+        return ResponseEntity.of(Optional.of("validation failed"));
+    }
     @PostMapping(path = "/validateLocal", produces = "application/json")
     public ResponseEntity<String> validateLocal(@RequestBody String token)
     {
@@ -94,8 +137,8 @@ public class tokenGenerator {
                        @Override
                        public Map<String, Object> deserialize(byte[] bytes) throws DeserializationException {
                            try {
-                               localClaimBuilder claimBuilder = new ObjectMapper().readValue(bytes, localClaimBuilder.class);
-                               return Map.of("claim_info",claimBuilder);
+                               claim claimData = new ObjectMapper().readValue(bytes, claim.class);
+                               return Map.of("claim_info",claimData);
                            } catch (IOException e) {
                                throw new RuntimeException(e);
                            }
@@ -105,8 +148,8 @@ public class tokenGenerator {
                     .build()
                     .parse(token)
                     .getClaims();
-           localClaimBuilder obj = claims.get("claim_info", localClaimBuilder.class);
-           logger.info(obj.toString());
+           claim obj = claims.get("claim_info", claim.class);
+           logger.info(obj.getClaim_info().toString());
            return ResponseEntity.of(Optional.of("validation successful"));
         }
         catch(PasetoException e)
