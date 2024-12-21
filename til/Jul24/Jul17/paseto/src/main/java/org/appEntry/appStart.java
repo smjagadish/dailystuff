@@ -20,6 +20,6 @@ public class appStart {
         initializer obj = ctx.getBean(initializer.class);
         logger.info("application started");
         obj.display();
-
+        logger.info("display method called");
     }
 }

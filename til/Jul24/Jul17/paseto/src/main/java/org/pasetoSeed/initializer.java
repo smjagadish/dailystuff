@@ -16,6 +16,6 @@ public class initializer {
     public secretSeed createSecretBean()
     {
         secretSeed seed = new secretSeed();
-        return seed;
+      return seed;
     }
 }

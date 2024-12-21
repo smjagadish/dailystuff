@@ -20,7 +20,7 @@ import java.util.Arrays;
 @SpringBootApplication
 @EnableJpaRepositories("org.Repository")
 @EntityScan("org.Entity")
-@ComponentScan(basePackages = "org.Controller,org.RateDTO,org.Service")
+@ComponentScan(basePackages = "org.Controller,org.RateDTO,org.Service,org.Config")
 public class appStart {
     private static final Logger logger = LoggerFactory.getLogger(appStart.class);
     @Autowired

@@ -21,6 +21,7 @@ public class LoanService {
     private static final String SERVICE_NAME = "loan-service";
     private static final String RATE_SERVICE_URL = "http://localhost:9000/api/rates/";
     @CircuitBreaker(name = SERVICE_NAME, fallbackMethod = "getDefaultLoans")
+    //@CircuitBreaker(name="mybreaker",fallbackMethod = "getDefaultLoans")
     public List<Loan> getAllLoansByType(String type) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

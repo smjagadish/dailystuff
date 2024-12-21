@@ -18,7 +18,9 @@ import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuit
 import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JConfigBuilder;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.Customizer;
+import org.springframework.cloud.commons.httpclient.ApacheHttpClientFactory;
 import org.springframework.cloud.commons.httpclient.OkHttpClientFactory;
+import org.springframework.cloud.configuration.SSLContextFactory;
 import org.springframework.cloud.openfeign.FeignCircuitBreaker;
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.cloud.openfeign.FeignFormatterRegistrar;
@@ -26,6 +28,7 @@ import org.springframework.cloud.openfeign.support.FeignHttpClientProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
 import org.springframework.http.client.support.BasicAuthenticationInterceptor;
 
 import java.io.IOException;
