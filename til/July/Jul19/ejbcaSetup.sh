@@ -15,7 +15,7 @@ echo  "✪ ✪  Getting EJBCA-CA Image  ✪ ✪ "
 echo ---------------------------------------------------------------------------------------------------------------------
 echo -e "\033[0m"
 IMAGE='primekey/ejbca-ce'
-#docker pull $IMAGE 
+#docker pull $IMAGE
 IMAGEID=$(docker images primekey/ejbca-ce --format "{{.ID}}")
 echo "Image ID of primekey/ejbca-ce is : " $IMAGEID
 echo
@@ -34,7 +34,7 @@ echo ---------------------------------------------------------------------------
 echo -e "\033[0m"
 IMAGE='primekey/ejbca-ce'
 echo $d
-echo "Running the container in the background" 
+echo "Running the container in the background"
 docker run -it --rm -d -p 8280:8080 -p 9223:8443 -h localhost  --name mycontainer $IMAGE
 docker logs mycontainer > runoutput.txt
 echo "✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ ✪ "

@@ -1,5 +1,5 @@
-seLinux in kubernetes 
- - concept 
+seLinux in kubernetes
+ - concept
  - modes
  - correlate with rh-ocp
  - how users/roles/type/level map
@@ -10,6 +10,6 @@ seccomp in kubernetes
  - seccomp operator to create seccomp profiles
  - secommp alerting
  - skipped seccomp recording
- - applying seccomp at pod/container level 
+ - applying seccomp at pod/container level
 
-appArmor in kubernetes 
+appArmor in kubernetes

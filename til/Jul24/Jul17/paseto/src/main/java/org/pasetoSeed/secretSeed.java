@@ -6,7 +6,7 @@ import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
+import javax.annotation.*;
 import javax.crypto.SecretKey;
 import java.security.KeyPair;
 

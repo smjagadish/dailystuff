@@ -4,9 +4,9 @@ Autoscaling based on kafka metrics (external metrics) and prometheus adapter bas
 * deploy kafka metrics exporter with custom values file ( specify the right kafka server ports and enable service monitor for kafka with right set of labels
 * deploy prometheus with service monitor label selector consistent with the svc monitor for kafka exporter . use prom_new dir for the manifests
 
- if needed edit the crd prometheuses.monitoring.coreos.com to target the svc monitor label selector 
+ if needed edit the crd prometheuses.monitoring.coreos.com to target the svc monitor label selector
 
-* deploy metrics server (i.e. k8s metrics server that will serve the external metrics req from hpa controller) 
+* deploy metrics server (i.e. k8s metrics server that will serve the external metrics req from hpa controller)
 
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
@@ -14,8 +14,8 @@ edit the deployment/ss to add --kubelet-insecure-tls startup arg
 
 * deploy the prometheus adapter to expose custom/external metrics api server and scrape metrics off of the running prometheus
 
-* deploy rbac for hpa and the hpa defintion (be sure to target the deployment to scale of your choice) 
+* deploy rbac for hpa and the hpa defintion (be sure to target the deployment to scale of your choice)
 
-* optionally run grafana docker to visualize the metrics 
+* optionally run grafana docker to visualize the metrics
 
 docker run -d -p 3000:3000 --name grafana grafana/grafana-enterprise:8.2.0

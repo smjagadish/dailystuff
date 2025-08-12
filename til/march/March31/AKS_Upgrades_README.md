@@ -1,16 +1,16 @@
 AKS upgrades can be control plane only or control plane + workers
 
 cmd:  az aks upgrade --resource-group esmjaga-playground --name vkubelet --kubernetes-version 1.23.3 --control-plane-only
-cmd:  az aks upgrade --resource-group esmjaga-playground --name vkubelet --kubernetes-version 1.23.3 
+cmd:  az aks upgrade --resource-group esmjaga-playground --name vkubelet --kubernetes-version 1.23.3
 
 get-upgrades can be executed to find candidate upgrade and determine upgrade paths
 
 cmd : az aks get-upgrades --name vkubelet --resource-group esmjaga-playground
 
-upgrades follow surge-drain-join cycle 
+upgrades follow surge-drain-join cycle
 surge can be controlled through % or count at cluster creation or on existing clusters
 
-upgrade of 'node os' image alone is possible through --node-only parameter for control plane + workers 
+upgrade of 'node os' image alone is possible through --node-only parameter for control plane + workers
 
 cmd: az aks nodepool upgrade --resource-group esmjaga-playground --cluster-name vkubelet --name mynodepool --node-image-only
 cmd: az aks upgrade --resource-group esmjaga-playground --name vkubelet --control-plane-only --node-image-only

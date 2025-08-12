@@ -21,4 +21,4 @@ forward-zone:
 kind: ConfigMap
 metadata:
  name: monolith-dns-cache-conf
- 
+

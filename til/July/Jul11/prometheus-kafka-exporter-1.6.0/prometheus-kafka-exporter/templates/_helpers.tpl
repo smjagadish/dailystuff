@@ -51,7 +51,7 @@ Return the appropriate apiVersion for rbac.
 {{- else -}}
 {{- print "rbac.authorization.k8s.io/v1beta1" -}}
 {{- end -}}
-{{- end -}} 
+{{- end -}}
 
 {{/*
 Create the name of the SASL SCRAM secret to use

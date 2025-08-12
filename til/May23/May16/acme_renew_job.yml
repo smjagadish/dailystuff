@@ -17,7 +17,7 @@ spec:
                   secretKeyRef:
                     key: token
                     name: dnssec
-            args: 
+            args:
             - --accept-tos
             - --domains=smjagadish.duckdns.org
             - --email=smjj@abc.com
@@ -25,10 +25,10 @@ spec:
             - --dns=duckdns
             - renew
             volumeMounts:
-              - mountPath: /tmp/lego                                                                                                                             
+              - mountPath: /tmp/lego
                 name: lego-certificate-claim-volume-reference
           restartPolicy: OnFailure
           volumes:
-            - name: lego-certificate-claim-volume-reference                                                                                                  
-              persistentVolumeClaim:                                                                                                                         
+            - name: lego-certificate-claim-volume-reference
+              persistentVolumeClaim:
                 claimName: lego-certificate-claim

@@ -9,11 +9,11 @@ helm install vault hashicorp/vault \
     --set "injector.enabled=false" \
     --set "csi.enabled=true"
 
-2. enable k8s auth with SA on vault and create needed role,policy . this step also creates a KV secret store in designated path and drops couple of secrets data 
+2. enable k8s auth with SA on vault and create needed role,policy . this step also creates a KV secret store in designated path and drops couple of secrets data
 
 kubectl exec -it vault-0 -- /bin/sh
 
-$ vault login root 
+$ vault login root
 
 $ vault secrets enable -version=1 kv
 
@@ -34,7 +34,7 @@ bound_service_account_namespaces=default \
 policies=kv_policy \
 ttl=20m
 
-## Put some Sample data 
+## Put some Sample data
 
 vault kv put kv/db password=password
 

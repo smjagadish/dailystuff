@@ -39,7 +39,7 @@ $ vault secrets tune -max-lease-ttl=8760h pki
 
 $ vault write pki/config/ca pem_bundle=@pem_bundle ttl=8760h
 
-4) create vault role , distn url and policy 
+4) create vault role , distn url and policy
 
 vault write pki/roles/pkigen allowed_domains=playground.com allow_subdomains=true max_ttl=2000h
 vault write pki/config/urls issuing_certificates="10.96.177.154:8200/v1/pki/ca" crl_distribution_points="10.96.177.154:8200/v1/pki/crl"
@@ -70,7 +70,7 @@ $ helm install \
 
 might have to also do kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.4.0/cert-manager.yaml [ to circumvent issues with mutating webhook ]
 
-7) SA creation and issuer definition 
+7) SA creation and issuer definition
 
 kubectl create sa issuer
 export ISSUER_SECRET_REF=issuer-token-8xdtz

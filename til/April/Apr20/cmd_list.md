@@ -20,7 +20,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SERVICE_ACCOUNT_ISSUER="<your service account issuer url>" # see section 1.1 on how to get the service account issuer url
 
-creating azure resource that will be accessed (i.e. azure key vault in this case with a sample data) 
+creating azure resource that will be accessed (i.e. azure key vault in this case with a sample data)
 ****************************************************************************************************
 az keyvault create --resource-group "${RESOURCE_GROUP}" \
    --location "${LOCATION}" \

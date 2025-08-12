@@ -6,7 +6,7 @@ reserved cpu : 0,1,2,3
 initial starting pool : 4-16
 kubelet  : outside of k8s responsibility to schedule them onto cpuset encompassing 0,1,2,3
 
-eg: etc/systemd/system.conf -> CPUAffinity [ global config ] 
+eg: etc/systemd/system.conf -> CPUAffinity [ global config ]
 
 runc process : 0,1,2,3 [ handled by kubelet ]
 system daemons/process such as udev, networkd : outside of k8s responsibility to schedule them onto cpuset encompassing 0,1,2,3

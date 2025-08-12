@@ -8,7 +8,7 @@ BODY:
 "description": "Splits the text field into a list. Computes the length of the 'word' field and stores it in a new 'word_count' field. Removes the 'test' field.",
 "processors": [
 
- 
+
  {
    "remove": {
      "field": "text"
@@ -16,7 +16,7 @@ BODY:
  }
 ]
 }
-* in the above info , pipeline-test is the name of the pipeline and it removes the field called text from all docs that are associated with the index 
+* in the above info , pipeline-test is the name of the pipeline and it removes the field called text from all docs that are associated with the index
 * associating index to pipeline is done as shown below ( example from an index creation reques)
 
 {
